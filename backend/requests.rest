@@ -1,0 +1,53 @@
+GET http://localhost:3001/teams/teams
+
+###
+
+GET http://localhost:3001/characters/characters
+
+###
+
+POST http://localhost:3001/teams/team/new
+Content-Type: application/json
+
+{
+    "character1": "63b4f1fdcaf1241949e5d412",
+    "character2": "63b4f209caf1241949e5d414",
+    "character3": "63b5c70811f01999b03df59f",
+    "character4": "63b4f221caf1241949e5d418"
+}
+###
+
+POST http://localhost:3001/characters/character/new
+Content-Type: application/json
+
+{
+    "name": "Eula"
+}
+
+###
+
+POST http://localhost:3001/characters/character/new
+Content-Type: application/json
+
+{
+    "name": "Raiden Shogun"
+}
+###
+
+POST http://localhost:3001/characters/character/new
+Content-Type: application/json
+
+{
+    "name": "Yelan"
+}
+###
+
+POST http://localhost:3001/characters/character/new
+Content-Type: application/json
+
+{
+    "name": "Bennett"
+}
+
+###
+DELETE http://localhost:3001/characters/character/delete/63b5c70811f01999b03df59f
