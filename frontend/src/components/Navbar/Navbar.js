@@ -8,7 +8,8 @@ export default function Navbar() {
     <nav className='bar'>
         
         <ul className='routes'>
-            <NavLink to="/">Characters</NavLink>
+            <NavLink to="/characters">Characters</NavLink>
+            <NavLink to="/teams">Teams</NavLink>
           
         </ul>
 

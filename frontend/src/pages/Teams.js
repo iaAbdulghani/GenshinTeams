@@ -4,7 +4,7 @@ import CharacterForm from "../components/CharacterForm/CharacterForm"
 
 const BASE_URL = "http://localhost:3001/characters"
 
-function Characters() {
+function Teams() {
   const [characters, setCharacters] = useState([])
   const [character, setCharacter] = useState("")
 
@@ -47,11 +47,12 @@ function Characters() {
     <div className="App">
       <div className='character-input-wrapper'>
       <CharacterForm/>
-        <button className ='add-button' onClick={handleAddCharacter} />
-        <button className ='add-button' onClick={handleDeleteCharacter} />
+       
+        <button className ='add-button'onClick={handleAddCharacter} >Add</button>
+        <button className ='add-button'onClick={handleDeleteCharacter} >Delete</button>
       </div>
     </div>
   );
 }
 
-export default Characters;
+export default Teams;

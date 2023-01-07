@@ -2,6 +2,7 @@ import React from 'react'
 import axios from "axios"
 import {useState, useEffect } from 'react'
 import Select from 'react-select';
+import "./CharacterForm.css"
 
 
 
@@ -33,10 +34,11 @@ useEffect(() => {
 
   return (
     
-   
-        <Select
+    <div className="select">
+        <Select 
   placeholder= "Select an individual"
   options={characters}/>
+  </div>
 
   )
 }

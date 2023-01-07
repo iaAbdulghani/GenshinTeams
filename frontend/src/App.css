@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+ 
   
 }
 
@@ -44,7 +44,7 @@
 
 body {
   margin: 0;
-  background: linear-gradient(to right,#cca9a9, rgb(209, 82, 82))
+  background: linear-gradient(to left,#91c898,#3e66b7)
 }
 
 .container {
@@ -92,4 +92,21 @@ body {
 }
 h1{
   margin-left: 5px;;
+}
+
+.character-input-wrapper{
+  display: flex; 
+  margin-left: 10px;
+
+}
+.character-input-wrapper button{
+  margin-left: 10px;
+  background-color: rgb(188, 106, 209);
+  color: rgb(79, 21, 159);
+  width: 50px;
+  height: 36px;
+  
+
+  
+  
 }
