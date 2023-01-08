@@ -1,6 +1,7 @@
 import  react, {useState, useEffect } from "react"
 import axios from "axios"
 import CharacterForm from "../components/CharacterForm/CharacterForm"
+import CharacterDisplay from "../components/CharacterDisplay/CharacterDisplay"
 
 const BASE_URL = "http://localhost:3001/characters"
 
@@ -18,7 +19,7 @@ function Characters() {
     axios.get(`${BASE_URL}/characters`)
     .then((res)=> setCharacters(res.data))
     .catch((err)=>console.error(err))
-    console.log(characters)
+   
   }
 
   const handleAddCharacter = () =>{
@@ -80,7 +81,7 @@ function Characters() {
         <button className ='add-button'onClick={handleDeleteCharacter} >Delete</button>
       </div>
       <div className = "characters">
-        {characters.length > 0 && characters.map(renderCharacter)}
+        {characters.length > 0 && characters.map((curr)=><CharacterDisplay key={curr.name} curr={curr}/>)}
       </div>
     </div>
   );
