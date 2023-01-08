@@ -7,7 +7,10 @@ const getCharacters = async(req,res) =>{
 
 const createCharacter = (req,res)=>{
     const character = new Character({
-        name: req.body.name
+        name: req.body.name,
+        apiName: req.body.fakeName,
+        level: req.body.level,
+        pic: req.body.pic
 
     })
     character.save()

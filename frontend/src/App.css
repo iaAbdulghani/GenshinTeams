@@ -99,14 +99,14 @@ h1{
   margin-left: 10px;
 
 }
-.character-input-wrapper button{
+.character-input-wrapper button, input {
   margin-left: 10px;
+  width: 50px;
+
+}
+.character-input-wrapper button{
   background-color: rgb(188, 106, 209);
   color: rgb(79, 21, 159);
-  width: 50px;
+  
   height: 36px;
-  
-
-  
-  
 }

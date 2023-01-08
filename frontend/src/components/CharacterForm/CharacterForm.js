@@ -8,9 +8,13 @@ import "./CharacterForm.css"
 
 
 
-export default function CharacterForm() {
-
+export default function CharacterForm({currCharacter, setCharacter}) {
+    
     const [characters, setCharacters] = useState([""])
+
+    function handleChange(event){
+        setCharacter(event)
+    }
 
 useEffect(() => {
     const getData =  async () => {
@@ -37,7 +41,8 @@ useEffect(() => {
     <div className="select">
         <Select 
   placeholder= "Select an individual"
-  options={characters}/>
+  options={characters} 
+  value={currCharacter} onChange={handleChange}/>
   </div>
 
   )
