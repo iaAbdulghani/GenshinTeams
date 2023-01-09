@@ -21,6 +21,12 @@ const deleteCharacter = async (req,res)=>{
     res.json(deletedCharacter)
 }
 
+const updateCharacter = async (req,res)=>{
+    const updatedCharacter = await Character.findByIdAndUpdate(req.params.id,{level: req.body.level})
+    res.json(updatedCharacter)
+}
+
 exports.getCharacters = getCharacters
 exports.createCharacter = createCharacter
 exports.deleteCharacter = deleteCharacter
+exports.updateCharacter = updateCharacter

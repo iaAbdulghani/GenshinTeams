@@ -14,7 +14,7 @@ function Characters() {
   useEffect(()=>{
     getCharacters()
     
-  },[])
+  },[character])
   const getCharacters = ()=>{
     axios.get(`${BASE_URL}/characters`)
     .then((res)=> setCharacters(res.data))
@@ -35,6 +35,19 @@ function Characters() {
         console.log("Fill out input")
     }
     else{
+        for(let i=0;i<characters.length;i++){
+            if(characters[i].name==character.label){
+                axios.post(`${BASE_URL}/character/update/${characters[i]._id}`,{
+                level: level
+                })
+            .then((res)=>{
+                setCharacter("")
+            })
+          .catch((err)=>console.error(err))
+          document.getElementById("Level").value=""
+          return;
+            }
+        }
         axios.post(`${BASE_URL}/character/new`,{
             name: character.label,
             fakeName: character.value,
@@ -46,6 +59,7 @@ function Characters() {
           })
           .catch((err)=>console.error(err))
     }
+    document.getElementById("Level").value=""
 
   }
 
@@ -66,10 +80,11 @@ function Characters() {
   return (
     <div className="App">
       <div className='character-input-wrapper'>
+      
       <CharacterForm currCharacter={character} setCharacter={setCharacter}/>
-      <input placeholder="Level" onChange={levelChange}/>
+      <input id="Level" placeholder="Level" onChange={levelChange}/>
         <button className ='add-button'onClick={handleAddCharacter} >Add</button>
-       
+        
       </div>
       <div className = "characters">
         {characters.length > 0 && characters.map((curr)=><CharacterDisplay key={curr.name} curr={curr} deleteCharacter={handleDeleteCharacter}/>)}

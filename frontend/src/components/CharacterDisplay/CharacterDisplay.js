@@ -6,7 +6,7 @@ import "./CharacterDisplay.css"
 
 export default function CharacterDisplay({curr, deleteCharacter}) {
    
-   
+
     let imgUrl = `https://api.genshin.dev/characters/${curr.apiName}/icon-big`
     return(
         <div className="display">
