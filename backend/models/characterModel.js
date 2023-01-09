@@ -10,9 +10,6 @@ const characterSchema = new Schema({
     },
     level:{
         type: Number
-    },
-    pic:{
-        type: String
     }
 })
 

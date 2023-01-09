@@ -1,17 +1,19 @@
 import React from 'react'
-import axios from "axios"
+import "./CharacterDisplay.css"
 
 
 
 
-
-export default function CharacterDisplay({curr}) {
+export default function CharacterDisplay({curr, deleteCharacter}) {
+   
+   
+    let imgUrl = `https://api.genshin.dev/characters/${curr.apiName}/icon-big`
     return(
-        <div>
-        {curr.name}
-        <img src={curr.pic}/>
+        <div className="display">
+            <button onClick={()=>deleteCharacter(curr._id)}>X</button>
+       {curr.name}
+       <img src={imgUrl}/>
+        <p>{curr.level}</p>
     </div>
     )
-
-  
 }

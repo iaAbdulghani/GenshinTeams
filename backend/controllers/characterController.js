@@ -9,8 +9,7 @@ const createCharacter = (req,res)=>{
     const character = new Character({
         name: req.body.name,
         apiName: req.body.fakeName,
-        level: req.body.level,
-        pic: req.body.pic
+        level: req.body.level
 
     })
     character.save()

@@ -22,6 +22,13 @@ function Characters() {
    
   }
 
+  const handleDeleteCharacter = (id)=>{
+    axios
+      .delete(`${BASE_URL}/character/delete/${id}`)
+      .then((res=> setCharacters(characters.filter((character=>character._id !== res.data._id)))))
+      .catch((err)=>console.error(err))
+  }
+
   const handleAddCharacter = () =>{
     
     if(character=="" || level==0){
@@ -31,8 +38,7 @@ function Characters() {
         axios.post(`${BASE_URL}/character/new`,{
             name: character.label,
             fakeName: character.value,
-            level: level,
-            pic: `https://api.genshin.dev/characters/${character.value}/icon-big`
+            level: level
           })
           .then((res)=>{
             setCharacters([...characters,res.data])
@@ -43,13 +49,7 @@ function Characters() {
 
   }
 
-  const handleDeleteCharacter = (id)=>{
-    console.log(characters)
-    // axios
-    //   .delete(`${BASE_URL}/character/delete/${id}`)
-    //   .then((res=> setCharacters(characters.filter((character=>character._id !== res.data._id)))))
-    //   .catch((err)=>console.error(err))
-  }
+  
 
   function levelChange(event){
     let tempLevel = (event.target.value)
@@ -62,15 +62,6 @@ function Characters() {
   }
 
  
-  const renderCharacter = (curr) =>(
-
-    <div key={curr.name}>
-        {curr.name}
-        <img src={curr.pic}/>
-    </div>
-  )
-
-  
 
   return (
     <div className="App">
@@ -78,10 +69,10 @@ function Characters() {
       <CharacterForm currCharacter={character} setCharacter={setCharacter}/>
       <input placeholder="Level" onChange={levelChange}/>
         <button className ='add-button'onClick={handleAddCharacter} >Add</button>
-        <button className ='add-button'onClick={handleDeleteCharacter} >Delete</button>
+       
       </div>
       <div className = "characters">
-        {characters.length > 0 && characters.map((curr)=><CharacterDisplay key={curr.name} curr={curr}/>)}
+        {characters.length > 0 && characters.map((curr)=><CharacterDisplay key={curr.name} curr={curr} deleteCharacter={handleDeleteCharacter}/>)}
       </div>
     </div>
   );
