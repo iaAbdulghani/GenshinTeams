@@ -120,5 +120,17 @@ h1{
   width: 100%;
   min-height: 250px;
   margin-top: 1em;
+  margin-left: 5px;
+}
+.team-input-wrapper{
+  display: flex; 
+  margin-left: 10px;
+
+
+}
+.team-input-wrapper button{
+  background-color: rgb(188, 106, 209);
+  color: rgb(79, 21, 159);
   
+  height: 36px;
 }

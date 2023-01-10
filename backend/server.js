@@ -24,10 +24,5 @@ app.use("/characters", characterRoute)
 
 app.listen(3001,()=>{
     console.log("Server is running")
-    // axios.get("https://api.genshin.dev/characters")
-    // .then(function(response){
-    //     response.data.forEach(character=>{
-    //         console.log(character)
-    //     })
-    // })
+    
 })

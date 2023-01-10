@@ -15,6 +15,7 @@ function Characters() {
     getCharacters()
     
   },[character])
+
   const getCharacters = ()=>{
     axios.get(`${BASE_URL}/characters`)
     .then((res)=> setCharacters(res.data))
