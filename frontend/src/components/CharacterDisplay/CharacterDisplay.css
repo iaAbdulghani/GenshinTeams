@@ -1,6 +1,6 @@
 .display{
-display: flex;
-  flex-direction: column;
+  display: flex;
+  flex-direction: column; 
   justify-content: space-between;
   align-items: center;
   width: 180px;
