@@ -13,7 +13,7 @@ function Characters() {
 
   useEffect(()=>{
     getCharacters()
-    
+    console.log(character)
   },[character])
 
   const getCharacters = ()=>{

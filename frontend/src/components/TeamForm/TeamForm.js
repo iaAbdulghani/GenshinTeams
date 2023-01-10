@@ -9,7 +9,7 @@ export default function TeamForm({characters,number, selected, setCharacter},) {
     const getData =  async () => {
         const arr = [];
           characters.map( (character) => {
-              arr.push({value: character.apiName, label: character.name})
+              arr.push({value: character, label: character.name})
           });
            setMembers(arr)
 

@@ -1,6 +1,7 @@
 import  react, {useState, useEffect } from "react"
 import axios from "axios"
 import TeamForm from "../components/TeamForm/TeamForm"
+import TeamDisplay from "../components/TeamDisplay/TeamDisplay"
 
 
 
@@ -13,19 +14,19 @@ function Teams() {
     const [character2, setCharacter2] = useState("")
     const [character3, setCharacter3] = useState("")
     const [character4, setCharacter4] = useState("")
-   
+    
     
     useEffect(()=>{
+        
         getTeams()
         getCharacters()
-        
+       
     }, [])
 
     const getTeams = ()=>{
         axios.get(`${BASE_URL}/teams`)
         .then((res)=> setTeams(res.data))
         .catch((err)=>console.error(err))
-       
     }
 
     const getCharacters = ()=>{
@@ -36,10 +37,25 @@ function Teams() {
       }
 
       const addTeam = ()=>{
-        console.log(character1)
-        console.log(character2)
-        console.log(character3)
-        console.log(character4)
+        axios.post(`${BASE_URL}/team/new`,{
+            character1: character1.value,
+            character2: character2.value,
+            character3: character3.value,
+            character4: character4.value
+          })
+          .then((res)=>{
+            setTeams(...teams,res.data)
+            console.log(teams)
+          })
+          .catch((err)=>console.error(err))
+        
+      }
+      const deleteTeam = (id)=>{
+        
+        axios
+      .delete(`${BASE_URL}/team/delete/${id}`)
+      .then((res=> setTeams(teams.filter((team=>team._id !== res.data._id)))))
+      .catch((err)=>console.error(err))
         
       }
 
@@ -53,6 +69,10 @@ function Teams() {
                 <button className ='add-button' onClick={addTeam} >Add</button>
         
             </div>
+            
+      <div className = "teams">
+        {teams.length > 0 && teams.map((curr, index)=><TeamDisplay key={index} currentTeam={curr} allCharacters={characters} handleDelete={deleteTeam}/>)}
+      </div>
         </div>
     )
 }
