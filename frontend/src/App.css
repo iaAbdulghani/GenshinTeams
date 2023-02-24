@@ -98,7 +98,6 @@ h1{
   display: flex; 
   margin-left: 10px;
 
-
 }
 .character-input-wrapper button, input {
   margin-left: 10px;
@@ -139,7 +138,7 @@ h1{
 
 .teams{
   display: grid;
-  grid-template-columns: repeat(auto-fill, 800px);
+  grid-template-columns: repeat(auto-fill, 680px);
   gap: 10px;
   align-items: center;
   width: 100%;

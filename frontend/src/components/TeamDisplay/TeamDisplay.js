@@ -34,16 +34,16 @@ export default function TeamDisplay({currentTeam,allCharacters, handleDelete}) {
     },[currentTeam])
    let imgUrl1, imgUrl2, imgUrl3, imgUrl4 
     if(character1!=""){
-        imgUrl1 = `https://api.genshin.dev/characters/${character1.apiName}/icon-big`
+        imgUrl1 = `https://genshin.jmp.blue/characters/${character1.apiName}/icon-big`
     }
    if(character2!=""){
-    imgUrl2 = `https://api.genshin.dev/characters/${character2.apiName}/icon-big`
+    imgUrl2 = `https://genshin.jmp.blue/characters/${character2.apiName}/icon-big`
    }
    if(character3 !=""){
-    imgUrl3 = `https://api.genshin.dev/characters/${character3.apiName}/icon-big`
+    imgUrl3 = `https://genshin.jmp.blue/characters/${character3.apiName}/icon-big`
    }
    if(character4!=""){
-    imgUrl4 = `https://api.genshin.dev/characters/${character4.apiName}/icon-big`
+    imgUrl4 = `https://genshin.jmp.blue/characters/${character4.apiName}/icon-big`
    }
    
     

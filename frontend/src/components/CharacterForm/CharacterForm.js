@@ -19,11 +19,11 @@ export default function CharacterForm({currCharacter, setCharacter}) {
 useEffect(() => {
     const getData =  async () => {
       const arr = [];
-      await axios.get('https://api.genshin.dev/characters/').then(async (res) => {
+      await axios.get('https://genshin.jmp.blue/characters/').then(async (res) => {
         let result = res.data;
 
         result.map(async (fakeName) => {
-            await axios.get(`https://api.genshin.dev/characters/${fakeName}`).then((res2)=>{
+            await axios.get(`https://genshin.jmp.blue/characters/${fakeName}`).then((res2)=>{
                 let realName = res2.data.name
                 return arr.push({value: fakeName, label: realName});
             })
